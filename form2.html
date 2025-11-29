@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Đơn Gia Nhập Hội Fan Cuồng Đội Tuyển Bóng Đá Việt Nam</h1>
+
+    <p>
+      Chào mừng bạn đến với hội của những trái tim đỏ rực, cháy hết mình vì màu
+      cờ sắc áo
+    </p>
+    <form action="">
+      <!-- họ và tên -->
+      <!-- thẻ size dùng để xác định chiều rộng của ô nhập liệu, mặc định là 20 ký tự -->
+      <label for="fullname"
+        >Họ và tên (nhập đúng để chúng tôi gọi bạn đi bão nha!):</label
+      >
+      <input
+        type="text"
+        id="fullname"
+        name="fullname"
+        required
+        placeholder="Nhập họ và tên của bạn"
+        size="30"
+      />
+      <br /><br />
+
+      <label for="email">Email để nhận link xem bóng đá chất lượng cao:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="Nhập email của bạn"
+        size="30"
+      />
+      <br /><br />
+
+      <!-- story -->
+      <!-- thẻ textarea dùng để nhập nhiều dòng văn bản 
+        thẻ spellcheck dùng để kiểm tra chính tả -->
+      <label for="story">Chia sẻ cảm xúc của bạn về đội tuyển Việt Nam:</label>
+      <textarea
+        name="story"
+        id="story"
+        placeholder="Gõ thật lòng đừng dấu cảm xúc"
+        rows="5"
+        cols="50"
+        spellcheck
+      ></textarea>
+
+      <br /><br />
+
+      <!-- giới tính -->
+      <fieldset>
+        <legend>Giới tính của bạn (để chia chỗ ngồi trên xe đi bảo):</legend>
+        <label for="male">
+          <input type="radio" name="gender" id="male" value="male" />
+        </label>
+        <br />
+        <label for="female">
+          <input type="radio" name="gender" id="female" value="female" />
+        </label>
+        <br />
+        <label for="other">
+          <input type="radio" name="gender" id="other" value="other" />
+        </label>
+      </fieldset>
+
+      <br /><br />
+
+      <!-- vị trí đá yêu thích -->
+      <label for="position">Bạn thích chơi vị trí nào trên sân bóng</label>
+      <select name="position" id="position">
+        <option value="goalkeeper">Thủ môn</option>
+        <option value="defender">Hậu vệ</option>
+        <option value="midfielder">Tiền vệ</option>
+        <option value="forward">Tiền đạo</option>
+      </select>
+      <br /><br />
+
+      <!-- mức độ phan cuồng -->
+      <label for="fanlevel">Mức độ cuồng nhiệt của bạn từ 1 đến 10:</label>
+      <input
+        type="number"
+        id="fanlevel"
+        name="fanlevel"
+        min="1"
+        max="10"
+        step="1"
+      />
+
+      <br /><br />
+      <!-- cầu thủ yêu thích -->
+      <!-- thẻ datalist dùng để cung cấp danh sách các lựa chọn cho ô nhập liệu -->
+
+      <label for="favoriteplayer">Cầu thủ yêu thích nhất:</label>
+      <input
+        type="text"
+        id="favoriteplayer"
+        name="favoriteplayer"
+        placeholder="Nhập tên cầu thủ yêu thích"
+        list="players"
+      />
+      <datalist id="players">
+        <option value="Đặng Văn Lâm"></option>
+        <option value="Trần Đình Trọng"></option>
+        <option value="Nguyễn Quang Hải"></option>
+        <option value="Phan Văn Đức"></option>
+        <option value="Nguyễn Tiến Linh"></option>
+      </datalist>
+      <br /><br />
+      <!-- cam kết  -->
+      <p><b>Tôi cam kết sẽ luôn cổ vũ hết mình cho đội tuyển Việt Nam!</b></p>
+      <label for="agree">Tôi cam kết</label>
+      <input type="checkbox" id="agree" name="agree" checked />
+
+      <!-- Nút gửi -->
+      <!-- thẻ type với giá trị "submit" dùng để gửi dữ liệu của form
+                    với giá trị "reset" dùng để xóa dữ liệu đã nhập
+         -->
+      <br /><br />
+      <button type="submit">Gửi đơn</button>
+      <button type="reset">Nhập lại</button>
+    </form>
+  </body>
+</html>
