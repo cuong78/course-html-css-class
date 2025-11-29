@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--  h1 là một trong những thẻ tiêu đề quan trọng nhất trong HTML
+      nó không chỉ dùng để tạo tiêu đề mà còn giúp cải thiện SEO và cấu trúc nội dung -->
+    <h1>Giới Thiệu Về Các Bé Baby Three</h1>
+
+    <h2>Đồ chơi blind-box đang làm mưa làm gió trên thị trường</h2>
+
+    <p>
+      Baby Three là dòng đồ chơi mô hình blind-box siêu dễ thương và độc đáo,
+      được thiết kế để thu hút các tín đồ mê phong cách kawaii (dễ thương). Dòng
+      sản phẩm này nổi bật với các chủ đề sáng tạo như
+      <b>Fairy Tale Adventure</b> hay Romantic Ocean Series, mỗi mô hình đều
+      được thiết kế với trang phục đáng yêu và câu chuyện thú vị. Điều này khiến
+      Baby Three rất được lòng các nhà sưu tầm, đặc biệt trong các dịp lễ hay sự
+      kiện unboxing.
+    </p>
+    <p>
+      Thương hiệu này cũng ra mắt nhiều bộ sưu tập theo chủ đề như 12 cung hoàng
+      đạo, hay các phiên bản đặc biệt dành cho dịp lễ hội. Điểm hấp dẫn của Baby
+      Three là yếu tố bất ngờ, vì bạn không biết được mình sẽ nhận được nhân vật
+      nào khi mở hộp. Ngoài ra, mỗi bộ còn có các mô hình phiên bản hiếm, khiến
+      dân sưu tầm phát cuồng
+    </p>
+
+    <!-- thẻ tạo liên kết link -->
+
+    <a
+      href="https://kenh14.vn"
+      title="https://kenh14.vn"
+      target="_blank"
+      rel="noreferrer noopener"
+      >Di chuyển kênh 14</a
+    >
+    <!-- thẻ title dùng để  hiện link khi người dùng di chuột vào liên kết -->
+    <!-- thẻ target dùng để mở liên kết trong tab mới  và rel dùng để bảo mật -->
+
+    <a href="./assets/babythree1.jpg" download="beba.png">Tải hình bé 3 cute</a>
+    <!-- thẻ download dùng để tải file về máy -->
+
+    <!-- thẻ hình ảnh -->
+    <img
+      src="./assets/babythree1.webp"
+      alt="hình bé ba"
+      height="300px"
+      width="300px"
+    />
+
+    <!-- file hình ảnh chiếm rất nhiều bộ nhớ, gây ra việt load web chậm, phương pháp sau 
+    convert sang định dạng webp để giảm dung lượng hình ảnh mà vẫn giữ được chất lượng hình ảnh tốt
+    sử dụng https://cloudinary.com/tools/image-to-webp để chuyển đổi định dạng hình ảnh
+
+    -->
+
+    <!-- chèn video, có hai cách  -->
+    <!-- cách 1 (web cá nhân ko có tính chuyên nghiệp cao)
+    thẻ video có các thuộc tính như controls (hiện thanh điều khiển play, pause, volume)
+    autoplay (tự động phát video khi trang web được tải)
+    loop (phát lặp lại video)
+    muted (tắt tiếng video)
+       -->
+
+    <video
+      src="./assets/video.mp4"
+      type="video/mp4"
+      controls
+      autoplay
+      loop
+      muted
+    ></video>
+
+    <!-- cách 2 web chuyên nghiệp hơn  
+      thẻ poster cung cấp một hình cho video, khi video chưa kịp load thì video sẽ hiện hình cover 
+      hoặc video bị lổi thì nó sẽ hiện ảnh này 
+      webm giúp tối ưu hóa việc truyền tải và giảm dung lượng file 
+      dùng nhiều thẻ source trong thẻ video 
+      vì nhiều trình duyệt sẽ không hổ trợ định dàng này thì nó sẽ phát định dạng kia 
+       -->
+    <video poster="./assets/video_cover.png" controls height="300px">
+      <source src="./assets/video.webm" type="video/webm" />
+      <source src="./assets/video.mp4" type="video/mp4" />
+      Trình duyệt của bạn không hỗ trợ thẻ video.
+    </video>
+
+    <!-- thẻ <audio>  -->
+    <audio controls>
+      <source src="./assets/audio.mp3" type="audio/mpeg" />
+      <source src="./assets/audio.ogg" type="audio/ogg" />
+      Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+  </body>
+</html>
