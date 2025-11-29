@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic HTML</title>
+  </head>
+  <body>
+    <!-- nếu không dùng div, thì có thể dùng semantic html 
+      SEMANTIC HTML: header, nav, article, section, aside, footer, main
+      giúp tăng khả năng truy cập và SEO cho trang web( khá quan trọng) 
+      
+      header: phần đầu trang, thường chứa logo, menu, tiêu đề.
+      nav: phần điều hướng, chứa các liên kết đến các trang hoặc phần khác của trang web.
+      main: phần chính của trang, chứa nội dung quan trọng nhất.
+      section: phần nội dung riêng biệt trong main, thường có tiêu đề riêng.
+      article: bài viết hoặc nội dung độc lập, có thể được chia sẻ hoặc tái sử dụng.
+      aside: phần nội dung phụ, như thanh bên, quảng cáo, hoặc thông tin liên quan.
+      footer: phần chân trang, thường chứa thông tin bản quyền, liên kết hữu ích, và thông tin liên hệ.
+      
+      -->
+
+    <!-- Header: Phần đầu trang -->
+    <header>
+      <h1>Chào mừng đến Hội Những Người Đu Đưa Idol</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">Giới thiệu</a></li>
+          <li><a href="#benefits">Tại sao chúng ta đu idol?</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main: Nội dung chính -->
+    <main>
+      <!-- Section: Giới thiệu -->
+      <section id="about">
+        <h2>Giới thiệu</h2>
+        <p>
+          Đây là nơi tụ họp của những người dành hết thanh xuân để theo dõi
+          idol: từ cập nhật lịch trình, "cày view", cho đến tranh luận "văn
+          minh" trên mạng xã hội.
+        </p>
+      </section>
+
+      <!-- Section: Lợi ích của đu idol -->
+      <section id="benefits">
+        <h2>Tại sao chúng ta đu idol?</h2>
+        <article>
+          <header>
+            <h3>Giải trí, xả stress</h3>
+          </header>
+          <p>
+            Nghe nhạc, xem video, và ngắm idol là cách xả stress đỉnh cao. Ai
+            bảo làm fan không vui?
+          </p>
+        </article>
+        <article>
+          <header>
+            <h3>Có thêm bạn bè đồng đội</h3>
+          </header>
+          <p>
+            Gia nhập fandom giúp bạn kết nối với những người có cùng đam mê.
+            **"Thuyền này không chèo một mình!"**
+          </p>
+        </article>
+        <article>
+          <header>
+            <h3>Truyền cảm hứng sống</h3>
+          </header>
+          <p>
+            Idol không chỉ đẹp mà còn tài năng. **Nhìn họ làm việc chăm chỉ, bạn
+            cũng thấy muốn cố gắng hơn!**
+          </p>
+        </article>
+      </section>
+
+      <!-- Aside: Nội dung phụ -->
+      <aside>
+        <h2>Tips cho fan đu idol</h2>
+        <ul>
+          <li>Học cách "cày view" hiệu quả mà không bị YouTube khóa.</li>
+          <li>Tham gia fandom chính thức để không bỏ lỡ tin tức.</li>
+          <li>Luôn giữ thái độ "đu văn minh," không toxic nhé!</li>
+        </ul>
+      </aside>
+    </main>
+
+    <!-- Footer: Phần cuối trang -->
+    <footer>
+      <p>
+        &copy; 2024 Hội Những Người Đu Idol. Fandom mạnh là fandom văn minh!
+      </p>
+    </footer>
+  </body>
+</html>
