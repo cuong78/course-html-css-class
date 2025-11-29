@@ -303,7 +303,7 @@ Nếu có câu hỏi hoặc cần hỗ trợ, vui lòng liên hệ:
 
 - **GitHub:** [@cuong78](https://github.com/cuong78)
 - **Repository:** [course-html-css-class](https://github.com/cuong78/course-html-css-class)
-- **Facebook:** [Anh Cường](https://www.facebook.com/ang.cuong.77)
+- **Facebook:** [Anh Cương](https://www.facebook.com/ang.cuong.77)
 - **Zalo:** Quét mã QR bên dưới để kết nối
 
 <div align="center">
