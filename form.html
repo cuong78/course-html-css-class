@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <form>
+      <br />
+      <!-- thẻ for trong lable dùng để liên kết nhãn với ô nhập liệu -->
+      <!-- 
+         * thẻ input dùng để tạo ô nhập liệu
+         * thẻ type dùng để xác định loại ô nhập liệu
+         * thẻ id dùng để liên kết với nhãn
+         * thẻ name dùng để đặt tên cho ô nhập liệu, nó giống và khác với id như sau:
+             giống: đều dùng để định danh ô nhập liệu
+             khác: id dùng để liên kết với nhãn(label), name dùng để gửi dữ liệu nhập liệu lên server
+         * thẻ required dùng để bắt buộc nhập liệu
+         * thẻ placeholder dùng để hiển thị văn bản gợi ý trong ô nhập liệu 
+         -->
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="Nhập email của bạn"
+      />
+
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        placeholder="Nhập mật khẩu của bạn"
+      />
+      <br />
+      <br />
+
+      <label for="remember">
+        <input type="checkbox" name="remember" id="remember" checked />
+        Ghi nhớ đăng nhập
+      </label>
+
+      <button>Đăng nhập</button>
+    </form>
+  </body>
+</html>
