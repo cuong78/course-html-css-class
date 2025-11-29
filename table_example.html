@@ -54,7 +54,9 @@
     -->
 
     <!-- thẻ table: tạo bảng, bao bọc những phần tử hàng và ô bên trong
-      -->
+         thẻ <tr>: đại diện cho 1 hàng 
+         thẻ <th>: đại diện cho 1 ô tiêu đề của cột hoặc là tiêu đề của hàng 
+        thẻ <td>: đại diện cho 1 ô dữ liệu trong bảng -->
     <table>
       <tr>
         <th>Họ và tên</th>
@@ -86,9 +88,15 @@
         Ví dụ 2 
     -->
     <table>
+      <!-- thẻ caption: tạo chú thích(tiêu đề ở cuối) cho bảng -->
+      <!-- thẻ scope dùng để xác định phạm vi áp dụng của tiêu đề
+       row thì hàng 
+       col thì cột -->
       <caption>
         Món Ăn Truyền Thống Trong Tết
       </caption>
+
+      <!-- thẻ <thead> đại diện cho phần đầu của bảng -->
       <thead>
         <tr>
           <th scope="col">Món Ăn</th>
@@ -96,6 +104,7 @@
           <th scope="col">Nguồn Gốc</th>
         </tr>
       </thead>
+      <!-- thẻ <tbody> đại diện cho phần thân của bảng -->
       <tbody>
         <tr>
           <th scope="row">Bánh Chưng</th>
@@ -118,8 +127,11 @@
           <td>Miền Nam</td>
         </tr>
       </tbody>
+      <!-- thẻ <tfoot> đại diện cho phần chân của bảng -->
       <tfoot>
         <tr>
+          <!-- thẻ colspan dùng để gộp nhiều cột thành một ô -->
+          <!-- tương ứng thì thẻ rowspan dùng để gộp nhiều hàng thành một ô -->
           <th scope="row" colspan="2">Số món phổ biến</th>
           <td>4</td>
         </tr>
@@ -130,6 +142,8 @@
         Ví dụ 3
     -->
     <table>
+      <!-- thẻ <colgroup> dùng để nhóm các cột lại với nhau, giúp áp dụng kiểu dáng hoặc thuộc tính cho nhóm cột đó -->
+
       <colgroup>
         <col style="background-color: #ffffff" span="2" />
         <col style="background-color: rgb(255, 255, 187)" span="2" />
