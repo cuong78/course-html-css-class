@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table - Bảng dữ liệu</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border: 2px solid rgb(140 140 140);
+        font-family: sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 500px;
+      }
+
+      caption {
+        caption-side: bottom;
+        padding: 10px;
+        font-weight: bold;
+      }
+
+      thead,
+      tfoot {
+        background-color: rgb(228 240 245);
+      }
+
+      th,
+      td {
+        border: 1px solid rgb(160 160 160);
+        padding: 8px 10px;
+      }
+
+      td:last-of-type {
+        text-align: center;
+      }
+
+      tbody > tr:nth-of-type(even) {
+        background-color: rgb(237 238 242);
+      }
+
+      tfoot th {
+        text-align: right;
+      }
+
+      tfoot td {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        Ví dụ 1
+    -->
+
+    <!-- thẻ table: tạo bảng, bao bọc những phần tử hàng và ô bên trong
+      -->
+    <table>
+      <tr>
+        <th>Họ và tên</th>
+        <th>Toán</th>
+        <th>Văn</th>
+        <th>Anh</th>
+      </tr>
+      <tr>
+        <td>Lê Văn A</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>Trần Thị B</td>
+        <td>9</td>
+        <td>8</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Lại Văn C</td>
+        <td>8</td>
+        <td>8</td>
+        <td>7</td>
+      </tr>
+    </table>
+
+    <!-- 
+        Ví dụ 2 
+    -->
+    <table>
+      <caption>
+        Món Ăn Truyền Thống Trong Tết
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Món Ăn</th>
+          <th scope="col">Ý Nghĩa</th>
+          <th scope="col">Nguồn Gốc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Bánh Chưng</th>
+          <td>Thể hiện lòng biết ơn tổ tiên và đất mẹ</td>
+          <td>Khắp miền Bắc</td>
+        </tr>
+        <tr>
+          <th scope="row">Dưa Hành</th>
+          <td>Hài hòa hương vị, tượng trưng cho gia đình ấm no</td>
+          <td>Khắp cả nước</td>
+        </tr>
+        <tr>
+          <th scope="row">Thịt Đông</th>
+          <td>Biểu tượng cho sự gắn kết và đông đúc</td>
+          <td>Miền Bắc</td>
+        </tr>
+        <tr>
+          <th scope="row">Canh Khổ Qua</th>
+          <td>Chúc vượt qua khó khăn, đón năm mới tốt đẹp</td>
+          <td>Miền Nam</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="2">Số món phổ biến</th>
+          <td>4</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- 
+        Ví dụ 3
+    -->
+    <table>
+      <colgroup>
+        <col style="background-color: #ffffff" span="2" />
+        <col style="background-color: rgb(255, 255, 187)" span="2" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col" rowspan="2">Ngân hàng</th>
+          <th scope="col" rowspan="2">Kỳ hạn</th>
+          <th scope="col" colspan="2">Lãi suất (%/năm)</th>
+        </tr>
+        <tr>
+          <th scope="col">Gửi tại quầy</th>
+          <th scope="col">Gửi trực tuyến</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Ngân hàng Vietcombank</th>
+          <td>3 tháng</td>
+          <td>4.2</td>
+          <td>4.5</td>
+        </tr>
+        <tr>
+          <th scope="row">Ngân hàng BIDV</th>
+          <td>6 tháng</td>
+          <td>5.0</td>
+          <td>5.3</td>
+        </tr>
+        <tr>
+          <th scope="row">Ngân hàng Techcombank</th>
+          <td>12 tháng</td>
+          <td>6.5</td>
+          <td>6.8</td>
+        </tr>
+        <tr>
+          <th scope="row">Ngân hàng Agribank</th>
+          <td>6 tháng</td>
+          <td>6.3</td>
+          <td>5.8</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="2">Lãi suất trung bình</th>
+          <td>5.2</td>
+          <td>5.5</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
+
+<table>
+  <tr>
+    <th>Tiêu đề cột 1</th>
+    <th>Tiêu đề cột 2</th>
+  </tr>
+  <tr>
+    <td>Ô 1</td>
+    <td>Ô 2</td>
+  </tr>
+</table>
