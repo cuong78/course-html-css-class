@@ -307,7 +307,7 @@ Nếu có câu hỏi hoặc cần hỗ trợ, vui lòng liên hệ:
 - **Zalo:** Quét mã QR bên dưới để kết nối
 
 <div align="center">
-  <img src="./assets/zalo-qr.png" alt="Zalo QR Code" width="300"/>
+  <img src="./assets/zalo.png" alt="Zalo QR Code" width="300"/>
   <p><i>Quét mã QR để kết bạn Zalo</i></p>
 </div>
 
