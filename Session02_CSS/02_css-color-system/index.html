@@ -1,3 +1,50 @@
+ <!-- 
+     nếu bạn dùng màu đúng, giao diện chưa chắc đẹp, nhưng nếu bạn dùng màu
+      sai, giao diện chắc chắn xấu.
+      
+      Màu sắc: 
+        1. Định dạng màu: là định nghĩa một màu 
+        ví dụ: 
+          - tên màu  : Cyan 
+          - Mã màu HEX : #00FFFF
+          - Mã màu RGB : rgb(0, 255, 255)
+          - Mã màu HSL : hsl(180, 100%, 50%)
+          vào website để xem bảng màu: https://htmlcolorcodes.com/color-names/
+        2. cách sử dụng các định dạng màu 
+        _tên màu: dễ hiểu dễ dùng, nhưng bị giới hạn số lượng màu (chỉ 140 màu trong khi đó websafe có hơn 16 triệu màu) 
+        _ Mã màu HEX: phổ biến nhất, được sử dụng rộng rãi trong thiết kế web
+                     kết hợp giữa đỏ, xanh lục,xanh lam để tạo ra hơn 16 triệu màu khác nhau
+                     biểu diễn màu bằng 6 ký tự , bắt đầu dấu # 
+                     được chia làm 3 cặp ký tự, mỗi cặp đại diện cho một màu cơ bản: đỏ, xanh lá, xanh dương (#00ABFF)
+                     range (0-9, A-F) , với 0 là giá trị thấp nhất và F là giá trị cao nhất 
+                     cặp nào càng gần F thì màu đó càng sáng
+        _ Mã màu RGB: nó gần giống với HEX, nhưng thay vì sử dụng hệ thập lục phân (hexadecimal), RGB sử dụng hệ thập phân (decimal) để biểu diễn giá trị màu
+                     định dạng: rgb(red, green, blue)
+                     mỗi thành phần màu có giá trị từ 0 đến 255  ( 00->FF = 256 giá trị)
+                     ví dụ: rgb(0, 171, 255) tương đương với mã màu HEX #00ABFF
+                     ngoài ra còn có rgba(red, green, blue, alpha) trong đó alpha là độ trong suốt (opacity) từ 0 đến 1
+                     ví dụ: rgba(0, 171, 255, 0.5) là màu xanh với độ trong suốt 50%
+        _ Mã màu HSL(Hue, Saturation, Lightness): khác với HEX và RGB, HSL biểu diễn màu dựa trên các thuộc tính: sắc độ (hue), độ bão hòa (saturation) và độ sáng (lightness)
+        các bạn có thể tham khảo thêm về HSL ở đây: https://www.fffuel.co/cccolor/
+        nó sẽ trực quan hơn(hex, rgb) khi thiết kế web 
+       
+       
+        3. các tạo color system cho giao diện 
+        
+        có 5 nhóm màu chính trong color system:
+          - Neutral colors (màu trung tính): bao gồm các sắc thái của xám, trắng, đen, dùng làm nền hoặc văn bản ( chiếm 60-70% trong giao diện)         
+          - Primary colors (màu chính): thường là màu chủ đạo của thương hiệu hoặc giao diện ( chiếm 20-30% trong giao diện)
+          - Secondary colors (màu phụ): bổ sung cho màu chính, tạo sự đa dạng và cân bằng (không nhất thiết phải có, nhưng nếu có thì phải hợp với màu chủ đạo)
+          - Accent colors (màu nhấn): dùng để làm nổi bật, có tính sáng tạo, không phụ thuộc vào màu chính hay màu phụ 
+          - utility colors (màu tiện ích): thường dùng ba màu: đỏ, xanh là, vàng dùng trong những ứng dụng quản lý, hoặc tương tác với người dùng để truyền tải thông điệp cụ thể ( ví dụ: đỏ - lỗi, xanh lá - thành công, vàng - cảnh báo)
+        
+          các bạn tham khảo thêm về color system ở đây: https://uicolors.app/generate
+          
+    -->
+
+
+    <!-- chạy giao diện để có thể hiểu hơn   -->
+
 <!DOCTYPE html>
 <html lang="vi">
   <head>

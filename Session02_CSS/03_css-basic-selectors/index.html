@@ -1,0 +1,340 @@
+<!-- bộ chọn selector
+     bộ chọn là cách tìm 1 hoặc nhiều phần tử HTML để áp dụng các quy tắc CSS lên chúng
+
+        các loại bộ chọn phổ biến:
+        1. Bộ chọn thẻ (Type Selector): chọn tất cả các phần tử của một loại thẻ cụ thể.
+            VD: p { color: blue; } - chọn tất cả thẻ p
+        
+        2. Bộ chọn lớp (Class Selector): chọn tất cả các phần tử có một lớp cụ thể.
+            VD: .classname { font-size: 16px; } - chọn tất cả phần tử có class="classname"
+
+        3. Bộ chọn ID (ID Selector): chọn một phần tử duy nhất có một ID cụ thể.
+            VD: #uniqueID { margin: 10px; } - chọn phần tử có id="uniqueID"
+
+        4. Bộ chọn con cháu (Descendant Selector): chọn tất cả các phần tử con bên trong một phần tử cha cụ thể , tương ứng cấp 2 là cháu.
+            VD: .A .B p { color: red; } - chọn tất cả phần tử p có class="B" bên trong phần tử có class="A" , nếu bỏ phần tử A ra khỏi phần tử cha , thì style này sẽ không áp dụng 
+            vì  p không còn là con cháu của A nữa 
+
+        5. Bộ chọn AND (Multiple Selector): chọn tất cả các phần tử khớp với tất cả các bộ chọn được chỉ định.
+            VD: ta có hai class là button, nhưng ở  có một class là button primary  
+            <button class="button primary">Click me</button>
+            <button class="button">Click me</button>
+            
+            lúc này css ta có thể viết là
+            .button.primary { background-color: blue; }
+            thì chỉ có phần tử có cả hai class button và primary mới được áp dụng style này 
+            lưu ý là không có dấu cách giữa hai class ( nó khách vs slector con cháu có cách nhau nhé)
+            
+        6. Bộ chọn OR (Group Selector): nếu áp dụng 1 sytle cho nhiều phần tử khác nhau
+            VD: h1, h2, h3 { font-family: Arial; } - chọn các phần tử cách nhau bởi dấu phẩy
+        
+    
+    
+    
+    -->
+
+<!-- chạy giao diện để có thể hiểu hơn   -->
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Basic Selectors - Bộ Chọn CSS Cơ Bản</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎯 CSS Basic Selectors - Bộ Chọn CSS Cơ Bản</h1>
+
+      <div class="intro">
+        <p>
+          <strong>📌 Bộ chọn (Selector)</strong> là cách để tìm một hoặc nhiều
+          phần tử HTML và áp dụng các quy tắc CSS lên chúng.
+        </p>
+      </div>
+
+      <!-- ===== 1. TYPE SELECTOR ===== -->
+      <div class="selector-section">
+        <h2>1. Bộ Chọn Thẻ (Type Selector)</h2>
+        <p>Chọn <strong>TẤT CẢ</strong> các phần tử của một loại thẻ cụ thể.</p>
+
+        <div class="code-example">
+          /* CSS */ p { color: #2c3e50; margin: 10px 0; }
+        </div>
+
+        <div class="visual-example">
+          <span class="selector-label">✅ Được chọn</span>
+          <p>Đây là đoạn văn thứ nhất - Được style bởi Type Selector</p>
+          <p>Đây là đoạn văn thứ hai - Cũng được style bởi Type Selector</p>
+          <p>Đây là đoạn văn thứ ba - Tất cả thẻ &lt;p&gt; đều được áp dụng</p>
+        </div>
+
+        <div class="note">
+          <strong>💡 Lưu ý:</strong> Type selector sẽ chọn
+          <strong>TẤT CẢ</strong> các thẻ cùng loại trong toàn bộ trang.
+        </div>
+      </div>
+
+      <!-- ===== 2. CLASS SELECTOR ===== -->
+      <div class="selector-section">
+        <h2>2. Bộ Chọn Lớp (Class Selector)</h2>
+        <p>
+          Chọn tất cả các phần tử có một <code>class</code> cụ thể. Bắt đầu bằng
+          dấu <strong>chấm (.)</strong>
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .highlight { background-color: #fff3cd; padding: 10px;
+          border-radius: 5px; font-weight: bold; } .text-blue { color: #2196f3;
+          }
+        </div>
+
+        <div class="visual-example">
+          <span class="selector-label">✅ Có class</span>
+          <p class="highlight">Đoạn văn này có class="highlight"</p>
+          <p class="text-blue">Đoạn văn này có class="text-blue"</p>
+          <p class="text-red">Đoạn văn này có class="text-red"</p>
+
+          <span
+            class="selector-label"
+            style="background: #e91e63; margin-top: 15px"
+            >❌ Không có class</span
+          >
+          <p>Đoạn văn này không có class nào</p>
+        </div>
+
+        <div class="note">
+          <strong>💡 Lưu ý:</strong> Class có thể được sử dụng cho
+          <strong>NHIỀU</strong> phần tử. Một phần tử cũng có thể có
+          <strong>NHIỀU</strong> class.
+        </div>
+      </div>
+
+      <!-- ===== 3. ID SELECTOR ===== -->
+      <div class="selector-section">
+        <h2>3. Bộ Chọn ID (ID Selector)</h2>
+        <p>
+          Chọn <strong>MỘT</strong> phần tử duy nhất có ID cụ thể. Bắt đầu bằng
+          dấu <strong>thăng (#)</strong>
+        </p>
+
+        <div class="code-example">
+          /* CSS */ #unique-element { background: linear-gradient(135deg,
+          #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius:
+          8px; }
+        </div>
+
+        <div class="visual-example">
+          <span class="selector-label">✅ ID duy nhất</span>
+          <div id="unique-element">
+            Đây là phần tử có id="unique-element" - DUY NHẤT trong trang!
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>⚠️ Lưu ý quan trọng:</strong> ID phải
+          <strong>DUY NHẤT</strong> trong toàn bộ trang. Không được có 2 phần tử
+          cùng ID.
+        </div>
+      </div>
+
+      <!-- ===== 4. DESCENDANT SELECTOR ===== -->
+      <div class="selector-section">
+        <h2>4. Bộ Chọn Con Cháu (Descendant Selector)</h2>
+        <p>
+          Chọn các phần tử <strong>BÊN TRONG</strong> một phần tử cha cụ thể.
+          Các selector cách nhau bởi <strong>dấu cách</strong>.
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .parent .child p { color: #1565c0; font-weight: bold; } /*
+          Chỉ chọn thẻ p nằm trong .child, và .child phải nằm trong .parent */
+        </div>
+
+        <div class="visual-example">
+          <span class="selector-label">✅ Trong cấu trúc đúng</span>
+          <div class="parent">
+            <p>Đây là p trực tiếp trong .parent (không được style)</p>
+            <div class="child">
+              <p>Đây là p trong .child của .parent (ĐƯỢC STYLE ✓)</p>
+              <p>Đây cũng là p trong .child của .parent (ĐƯỢC STYLE ✓)</p>
+            </div>
+          </div>
+
+          <span
+            class="selector-label"
+            style="background: #e91e63; margin-top: 15px"
+            >❌ Ngoài cấu trúc</span
+          >
+          <div class="child">
+            <p>
+              Đây là p trong .child nhưng KHÔNG CÓ .parent ở ngoài (không được
+              style)
+            </p>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>💡 Lưu ý:</strong> Descendant selector chọn
+          <strong>TẤT CẢ</strong> các con cháu (không chỉ con trực tiếp). Nếu
+          phần tử ra khỏi cấu trúc cha, style sẽ <strong>KHÔNG</strong> được áp
+          dụng.
+        </div>
+      </div>
+
+      <!-- ===== 5. AND SELECTOR ===== -->
+      <div class="selector-section">
+        <h2>5. Bộ Chọn AND (Multiple Selector)</h2>
+        <p>
+          Chọn phần tử phải có <strong>TẤT CẢ</strong> các class được chỉ định.
+          Các class viết <strong>LIỀN NHAU KHÔNG CÓ DẤU CÁCH</strong>.
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .button { padding: 10px 20px; border: none; border-radius:
+          5px; } .button.primary { background-color: #2196f3; color: white; }
+          .button.secondary { background-color: #9c27b0; color: white; } /*
+          .button.primary nghĩa là phải có CẢ HAI class: button VÀ primary */
+        </div>
+
+        <div class="visual-example">
+          <span class="selector-label">✅ Có đủ cả 2 class</span>
+          <button class="button primary">
+            Button Primary (có cả button và primary)
+          </button>
+          <button class="button secondary">
+            Button Secondary (có cả button và secondary)
+          </button>
+          <button class="button danger">
+            Button Danger (có cả button và danger)
+          </button>
+
+          <br /><br />
+          <span class="selector-label" style="background: #e91e63"
+            >❌ Chỉ có 1 class</span
+          >
+          <button class="button">Button (chỉ có button, không có màu)</button>
+        </div>
+
+        <div class="note">
+          <strong>⚠️ Phân biệt:</strong>
+          <ul style="margin-left: 20px; margin-top: 10px">
+            <li>
+              <code>.button.primary</code> (KHÔNG CÓ DẤU CÁCH) = phần tử phải có
+              CẢ 2 class
+            </li>
+            <li>
+              <code>.button .primary</code> (CÓ DẤU CÁCH) = .primary là CON/CHÁU
+              của .button
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ===== 6. GROUP SELECTOR ===== -->
+      <div class="selector-section">
+        <h2>6. Bộ Chọn OR (Group Selector)</h2>
+        <p>
+          Áp dụng cùng một style cho <strong>NHIỀU</strong> selector khác nhau.
+          Các selector cách nhau bởi <strong>dấu phẩy (,)</strong>
+        </p>
+
+        <div class="code-example">
+          /* CSS */ h3, h4, h5 { color: #673ab7; margin: 15px 0 10px 0; } /*
+          Style này được áp dụng cho CẢ h3, h4 VÀ h5 */
+        </div>
+
+        <div class="visual-example">
+          <span class="selector-label">✅ Tất cả đều được style</span>
+          <h3>Đây là thẻ H3 - Được style</h3>
+          <h4>Đây là thẻ H4 - Được style</h4>
+          <h5>Đây là thẻ H5 - Được style</h5>
+
+          <span
+            class="selector-label"
+            style="background: #e91e63; margin-top: 15px"
+            >❌ Không trong group</span
+          >
+          <h2 style="color: #333">
+            Đây là thẻ H2 - KHÔNG được style (không trong group)
+          </h2>
+        </div>
+
+        <div class="note">
+          <strong>💡 Lưu ý:</strong> Group selector giúp giảm lặp code khi nhiều
+          phần tử cần cùng một style.
+        </div>
+      </div>
+
+      <!-- ===== COMPARISON TABLE ===== -->
+      <h2>📊 Bảng So Sánh Các Selector</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Loại Selector</th>
+            <th>Cú Pháp</th>
+            <th>Ví Dụ</th>
+            <th>Chọn Gì?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Type</strong></td>
+            <td><code>element</code></td>
+            <td><code>p { }</code></td>
+            <td>Tất cả thẻ &lt;p&gt;</td>
+          </tr>
+          <tr>
+            <td><strong>Class</strong></td>
+            <td><code>.classname</code></td>
+            <td><code>.highlight { }</code></td>
+            <td>Tất cả phần tử có class="highlight"</td>
+          </tr>
+          <tr>
+            <td><strong>ID</strong></td>
+            <td><code>#idname</code></td>
+            <td><code>#header { }</code></td>
+            <td>Phần tử có id="header" (duy nhất)</td>
+          </tr>
+          <tr>
+            <td><strong>Descendant</strong></td>
+            <td><code>A B</code> (có dấu cách)</td>
+            <td><code>.parent .child { }</code></td>
+            <td>.child bên trong .parent</td>
+          </tr>
+          <tr>
+            <td><strong>AND</strong></td>
+            <td><code>AB</code> (không dấu cách)</td>
+            <td><code>.button.primary { }</code></td>
+            <td>Có CẢ 2 class: button và primary</td>
+          </tr>
+          <tr>
+            <td><strong>Group (OR)</strong></td>
+            <td><code>A, B</code> (dấu phẩy)</td>
+            <td><code>h1, h2, h3 { }</code></td>
+            <td>Tất cả h1 HOẶC h2 HOẶC h3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ===== TIPS ===== -->
+      <div class="note" style="background: #f8d7da; border-color: #dc3545">
+        <h3 style="color: #721c24; margin-top: 0">💡 Tips Quan Trọng:</h3>
+        <ul style="margin-left: 20px; color: #721c24">
+          <li>
+            <strong>Class vs ID:</strong> Dùng class cho nhiều phần tử, ID cho
+            phần tử duy nhất
+          </li>
+          <li><strong>Descendant:</strong> Có dấu CÁCH giữa các selector</li>
+          <li><strong>AND:</strong> KHÔNG có dấu cách giữa các class</li>
+          <li><strong>Group:</strong> Dùng dấu PHẨY để nhóm nhiều selector</li>
+          <li>
+            <strong>Thực hành:</strong> Mở DevTools (F12) để xem selector nào
+            đang chọn phần tử nào
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
