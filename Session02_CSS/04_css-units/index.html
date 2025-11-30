@@ -1,0 +1,808 @@
+<!-- 
+    Đơn vị CSS
+    px - đơn vị tuyệt đối, độ rộng nhỏ nhất của 1 điểm ảnh trên màn hình
+    rem - đơn vị tương đối, dựa trên kích thước font-size của html
+    em - giống rem nhưng dựa trên kích thước font-size của thẻ cha
+    % - phần trăm, dựa trên kích thước của thẻ cha
+    vw - đơn vị tương đối, dựa trên chiều rộng của viewport (cửa sổ trình duyệt)
+    vh - đơn vị tương đối, dựa trên chiều cao của viewport (cửa sổ trình duyệt)
+
+-->
+
+<!-- chạy giao diện để có thể hiểu hơn   -->
+<!DOCTYPE html>
+<html lang="vi" style="font-size: 16px">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Units - Đơn Vị CSS</title>
+    <style>
+      .unit-section {
+        margin: 30px 0;
+        padding: 25px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 5px solid #3498db;
+      }
+
+      .unit-title {
+        font-size: 1.5em;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .unit-badge {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.7em;
+      }
+
+      .absolute-badge {
+        background: #e74c3c;
+      }
+
+      .relative-badge {
+        background: #2ecc71;
+      }
+
+      .code-example {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        overflow-x: auto;
+      }
+
+      .demo-box {
+        margin: 20px 0;
+        padding: 20px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        background: white;
+      }
+
+      .visual-demo {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .demo-item {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: transform 0.2s;
+      }
+
+      .demo-item:hover {
+        transform: translateX(5px);
+        border-color: #3498db;
+      }
+
+      .demo-label {
+        min-width: 120px;
+        font-weight: bold;
+        color: #2c3e50;
+        font-family: "Courier New", monospace;
+      }
+
+      .demo-bar {
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .note {
+        background: #d1ecf1;
+        border-left: 4px solid #0c5460;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+      }
+
+      .warning {
+        background: #f8d7da;
+        border-left: 4px solid #dc3545;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        color: #721c24;
+      }
+
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .comparison-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+      }
+
+      .comparison-card h4 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      /* Demo PX */
+      .px-demo-16 {
+        width: 16px;
+      }
+      .px-demo-32 {
+        width: 32px;
+      }
+      .px-demo-64 {
+        width: 64px;
+      }
+      .px-demo-128 {
+        width: 128px;
+      }
+      .px-demo-256 {
+        width: 256px;
+      }
+
+      /* Demo REM */
+      .rem-demo-1 {
+        width: 1rem;
+      } /* 16px */
+      .rem-demo-2 {
+        width: 2rem;
+      } /* 32px */
+      .rem-demo-3 {
+        width: 3rem;
+      } /* 48px */
+      .rem-demo-5 {
+        width: 5rem;
+      } /* 80px */
+      .rem-demo-10 {
+        width: 10rem;
+      } /* 160px */
+
+      /* Demo EM */
+      .em-parent {
+        font-size: 20px;
+        padding: 15px;
+        background: #e3f2fd;
+        border-radius: 5px;
+        margin: 15px 0;
+      }
+
+      .em-demo-1 {
+        width: 1em;
+      } /* 20px */
+      .em-demo-2 {
+        width: 2em;
+      } /* 40px */
+      .em-demo-3 {
+        width: 3em;
+      } /* 60px */
+      .em-demo-5 {
+        width: 5em;
+      } /* 100px */
+
+      /* Demo Percent */
+      .percent-parent {
+        width: 400px;
+        padding: 15px;
+        background: #e8f5e9;
+        border-radius: 5px;
+        margin: 15px 0;
+        border: 2px dashed #4caf50;
+      }
+
+      .percent-demo-25 {
+        width: 25%;
+      }
+      .percent-demo-50 {
+        width: 50%;
+      }
+      .percent-demo-75 {
+        width: 75%;
+      }
+      .percent-demo-100 {
+        width: 100%;
+      }
+
+      /* Demo VW */
+      .vw-demo-10 {
+        width: 10vw;
+      }
+      .vw-demo-25 {
+        width: 25vw;
+      }
+      .vw-demo-50 {
+        width: 50vw;
+      }
+      .vw-demo-75 {
+        width: 75vw;
+      }
+
+      /* Demo VH */
+      .vh-demo {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+      }
+
+      .vh-box {
+        width: 100px;
+        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      .vh-demo-10 {
+        height: 10vh;
+      }
+      .vh-demo-20 {
+        height: 20vh;
+      }
+      .vh-demo-30 {
+        height: 30vh;
+      }
+
+      .interactive-demo {
+        background: #fff3cd;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        border: 2px solid #ffc107;
+      }
+
+      .slider-control {
+        margin: 15px 0;
+      }
+
+      .slider-control label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .slider-control input[type="range"] {
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .current-value {
+        display: inline-block;
+        background: #2c3e50;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        margin-left: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #3498db;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      code {
+        background: #e9ecef;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        color: #c62828;
+      }
+    </style>
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📏 CSS Units - Đơn Vị CSS</h1>
+
+      <div class="intro">
+        <p>
+          <strong>📌 Đơn vị CSS</strong> được sử dụng để xác định kích thước,
+          khoảng cách và các thuộc tính khác trong CSS. Có 2 loại chính:
+          <strong>Tuyệt đối</strong> và <strong>Tương đối</strong>.
+        </p>
+      </div>
+
+      <!-- ===== 1. PX (PIXEL) ===== -->
+      <div class="unit-section">
+        <div class="unit-title">
+          <span>1. px (Pixel)</span>
+          <span class="unit-badge absolute-badge">Tuyệt đối</span>
+        </div>
+        <p>
+          Đơn vị tuyệt đối - Độ rộng nhỏ nhất của 1 điểm ảnh trên màn hình.
+          <strong>KHÔNG</strong> thay đổi theo bất kỳ yếu tố nào.
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .box { width: 200px; height: 100px; font-size: 16px; }
+        </div>
+
+        <div class="demo-box">
+          <h4>Demo chiều rộng với px:</h4>
+          <div class="visual-demo">
+            <div class="demo-item">
+              <span class="demo-label">16px</span>
+              <div class="demo-bar px-demo-16">16px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">32px</span>
+              <div class="demo-bar px-demo-32">32px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">64px</span>
+              <div class="demo-bar px-demo-64">64px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">128px</span>
+              <div class="demo-bar px-demo-128">128px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">256px</span>
+              <div class="demo-bar px-demo-256">256px</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>✅ Ưu điểm:</strong> Chính xác, dễ kiểm soát, không đổi<br />
+          <strong>❌ Nhược điểm:</strong> Không responsive, không linh hoạt với
+          các màn hình khác nhau
+        </div>
+      </div>
+
+      <!-- ===== 2. REM ===== -->
+      <div class="unit-section">
+        <div class="unit-title">
+          <span>2. rem (Root Em)</span>
+          <span class="unit-badge relative-badge">Tương đối</span>
+        </div>
+        <p>
+          Đơn vị tương đối dựa trên <code>font-size</code> của thẻ
+          <code>&lt;html&gt;</code> (root). Mặc định:
+          <strong>1rem = 16px</strong>
+        </p>
+
+        <div class="code-example">
+          /* CSS */ html { font-size: 16px; /* Mặc định */ } .box { width:
+          10rem; /* 10 × 16px = 160px */ padding: 2rem; /* 2 × 16px = 32px */ }
+        </div>
+
+        <div class="demo-box">
+          <h4>Demo chiều rộng với rem (html font-size = 16px):</h4>
+          <div class="visual-demo">
+            <div class="demo-item">
+              <span class="demo-label">1rem</span>
+              <div class="demo-bar rem-demo-1">1rem = 16px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">2rem</span>
+              <div class="demo-bar rem-demo-2">2rem = 32px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">3rem</span>
+              <div class="demo-bar rem-demo-3">3rem = 48px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">5rem</span>
+              <div class="demo-bar rem-demo-5">5rem = 80px</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">10rem</span>
+              <div class="demo-bar rem-demo-10">10rem = 160px</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>✅ Ưu điểm:</strong> Responsive, dễ điều chỉnh toàn bộ website
+          bằng cách thay đổi font-size của html<br />
+          <strong>🎯 Khi nào dùng:</strong> Font-size, spacing, layout chính
+        </div>
+      </div>
+
+      <!-- ===== 3. EM ===== -->
+      <div class="unit-section">
+        <div class="unit-title">
+          <span>3. em</span>
+          <span class="unit-badge relative-badge">Tương đối</span>
+        </div>
+        <p>
+          Đơn vị tương đối dựa trên <code>font-size</code> của thẻ
+          <strong>CHA</strong>. Khác với rem, em phụ thuộc vào thẻ cha gần nhất.
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .parent { font-size: 20px; } .child { width: 5em; /* 5 ×
+          20px = 100px */ }
+        </div>
+
+        <div class="demo-box">
+          <div class="em-parent">
+            <strong>Thẻ cha này có font-size: 20px</strong>
+            <div class="visual-demo">
+              <div class="demo-item">
+                <span class="demo-label">1em</span>
+                <div class="demo-bar em-demo-1">1em = 20px</div>
+              </div>
+              <div class="demo-item">
+                <span class="demo-label">2em</span>
+                <div class="demo-bar em-demo-2">2em = 40px</div>
+              </div>
+              <div class="demo-item">
+                <span class="demo-label">3em</span>
+                <div class="demo-bar em-demo-3">3em = 60px</div>
+              </div>
+              <div class="demo-item">
+                <span class="demo-label">5em</span>
+                <div class="demo-bar em-demo-5">5em = 100px</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="warning">
+          <strong>⚠️ Cẩn thận:</strong> em có thể gây hiệu ứng cascade (lồng
+          nhau) phức tạp. Nếu thẻ cha có font-size cũng dùng em, giá trị sẽ nhân
+          lên!
+        </div>
+
+        <div class="comparison-grid">
+          <div class="comparison-card">
+            <h4>📌 rem vs em</h4>
+            <ul style="margin-left: 20px">
+              <li>
+                <strong>rem:</strong> Luôn dựa trên <code>&lt;html&gt;</code>
+              </li>
+              <li><strong>em:</strong> Dựa trên thẻ cha</li>
+              <li><strong>rem:</strong> Ổn định hơn</li>
+              <li><strong>em:</strong> Linh hoạt nhưng phức tạp</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 4. PERCENT (%) ===== -->
+      <div class="unit-section">
+        <div class="unit-title">
+          <span>4. % (Percent - Phần Trăm)</span>
+          <span class="unit-badge relative-badge">Tương đối</span>
+        </div>
+        <p>
+          Đơn vị tương đối dựa trên kích thước của thẻ <strong>CHA</strong>. Rất
+          hữu ích cho responsive design.
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .parent { width: 400px; } .child { width: 50%; /* 50% ×
+          400px = 200px */ }
+        </div>
+
+        <div class="demo-box">
+          <div class="percent-parent">
+            <strong>Thẻ cha này có width: 400px</strong>
+            <div class="visual-demo">
+              <div class="demo-item">
+                <span class="demo-label">25%</span>
+                <div class="demo-bar percent-demo-25">25% = 100px</div>
+              </div>
+              <div class="demo-item">
+                <span class="demo-label">50%</span>
+                <div class="demo-bar percent-demo-50">50% = 200px</div>
+              </div>
+              <div class="demo-item">
+                <span class="demo-label">75%</span>
+                <div class="demo-bar percent-demo-75">75% = 300px</div>
+              </div>
+              <div class="demo-item">
+                <span class="demo-label">100%</span>
+                <div class="demo-bar percent-demo-100">100% = 400px</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>✅ Ưu điểm:</strong> Cực kỳ linh hoạt, tự động điều chỉnh theo
+          kích thước cha<br />
+          <strong>🎯 Khi nào dùng:</strong> Layout, grid, responsive design
+        </div>
+      </div>
+
+      <!-- ===== 5. VW (Viewport Width) ===== -->
+      <div class="unit-section">
+        <div class="unit-title">
+          <span>5. vw (Viewport Width)</span>
+          <span class="unit-badge relative-badge">Tương đối</span>
+        </div>
+        <p>
+          Đơn vị tương đối dựa trên <strong>chiều rộng</strong> của viewport
+          (cửa sổ trình duyệt). <strong>1vw = 1% chiều rộng viewport</strong>
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .box { width: 50vw; /* 50% chiều rộng màn hình */ } /* Nếu
+          màn hình rộng 1000px: 50vw = 500px */
+        </div>
+
+        <div class="demo-box">
+          <h4>Demo chiều rộng với vw (Thử resize browser!):</h4>
+          <div class="visual-demo">
+            <div class="demo-item">
+              <span class="demo-label">10vw</span>
+              <div class="demo-bar vw-demo-10">10vw</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">25vw</span>
+              <div class="demo-bar vw-demo-25">25vw</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">50vw</span>
+              <div class="demo-bar vw-demo-50">50vw</div>
+            </div>
+            <div class="demo-item">
+              <span class="demo-label">75vw</span>
+              <div class="demo-bar vw-demo-75">75vw</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>💡 Thử nghiệm:</strong> Resize cửa sổ trình duyệt để xem các
+          thanh bar tự động thay đổi kích thước!
+        </div>
+      </div>
+
+      <!-- ===== 6. VH (Viewport Height) ===== -->
+      <div class="unit-section">
+        <div class="unit-title">
+          <span>6. vh (Viewport Height)</span>
+          <span class="unit-badge relative-badge">Tương đối</span>
+        </div>
+        <p>
+          Đơn vị tương đối dựa trên <strong>chiều cao</strong> của viewport.
+          <strong>1vh = 1% chiều cao viewport</strong>
+        </p>
+
+        <div class="code-example">
+          /* CSS */ .hero-section { height: 100vh; /* Full chiều cao màn hình */
+          } .box { height: 50vh; /* 50% chiều cao màn hình */ }
+        </div>
+
+        <div class="demo-box">
+          <h4>Demo chiều cao với vh:</h4>
+          <div class="vh-demo">
+            <div class="vh-box vh-demo-10">10vh</div>
+            <div class="vh-box vh-demo-20">20vh</div>
+            <div class="vh-box vh-demo-30">30vh</div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>🎯 Use case phổ biến:</strong><br />
+          • Hero section full màn hình: <code>height: 100vh;</code><br />
+          • Modal full màn hình<br />
+          • Sidebar với chiều cao cố định theo viewport
+        </div>
+      </div>
+
+      <!-- ===== COMPARISON TABLE ===== -->
+      <h2>📊 Bảng So Sánh Các Đơn Vị CSS</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Đơn Vị</th>
+            <th>Loại</th>
+            <th>Dựa Trên</th>
+            <th>Ví Dụ</th>
+            <th>Khi Nào Dùng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>px</strong></td>
+            <td>Tuyệt đối</td>
+            <td>Pixel màn hình</td>
+            <td><code>width: 200px;</code></td>
+            <td>Border, shadow, chính xác</td>
+          </tr>
+          <tr>
+            <td><strong>rem</strong></td>
+            <td>Tương đối</td>
+            <td>font-size của &lt;html&gt;</td>
+            <td><code>font-size: 1.5rem;</code></td>
+            <td>Font-size, spacing, layout</td>
+          </tr>
+          <tr>
+            <td><strong>em</strong></td>
+            <td>Tương đối</td>
+            <td>font-size của thẻ cha</td>
+            <td><code>padding: 2em;</code></td>
+            <td>Component linh hoạt</td>
+          </tr>
+          <tr>
+            <td><strong>%</strong></td>
+            <td>Tương đối</td>
+            <td>Kích thước thẻ cha</td>
+            <td><code>width: 50%;</code></td>
+            <td>Layout responsive</td>
+          </tr>
+          <tr>
+            <td><strong>vw</strong></td>
+            <td>Tương đối</td>
+            <td>Chiều rộng viewport</td>
+            <td><code>width: 50vw;</code></td>
+            <td>Full-width sections</td>
+          </tr>
+          <tr>
+            <td><strong>vh</strong></td>
+            <td>Tương đối</td>
+            <td>Chiều cao viewport</td>
+            <td><code>height: 100vh;</code></td>
+            <td>Full-height sections</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ===== BEST PRACTICES ===== -->
+      <h2>💡 Best Practices - Thực Hành Tốt Nhất</h2>
+
+      <div class="comparison-grid">
+        <div
+          class="comparison-card"
+          style="border-color: #2ecc71; border-width: 3px"
+        >
+          <h4 style="color: #2ecc71">✅ NÊN DÙNG</h4>
+          <ul style="margin-left: 20px">
+            <li><strong>rem</strong> cho font-size</li>
+            <li><strong>rem</strong> cho spacing (margin, padding)</li>
+            <li><strong>%</strong> cho width/height responsive</li>
+            <li><strong>vh/vw</strong> cho full-screen sections</li>
+            <li><strong>px</strong> cho border, shadow</li>
+          </ul>
+        </div>
+
+        <div
+          class="comparison-card"
+          style="border-color: #e74c3c; border-width: 3px"
+        >
+          <h4 style="color: #e74c3c">❌ TRÁNH DÙNG</h4>
+          <ul style="margin-left: 20px">
+            <li>px cho font-size (không responsive)</li>
+            <li>em lồng nhiều cấp (phức tạp)</li>
+            <li>vh trên mobile (có issue với address bar)</li>
+            <li>Trộn lẫn nhiều đơn vị không cần thiết</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="interactive-demo">
+        <h3 style="margin-top: 0">🎮 Thử Nghiệm Tương Tác</h3>
+        <p>Mở <strong>DevTools (F12)</strong> và thử:</p>
+        <ul style="margin-left: 20px">
+          <li>
+            Thay đổi <code>html { font-size: 20px; }</code> → Xem rem thay đổi
+          </li>
+          <li>Resize cửa sổ browser → Xem vw/vh thay đổi</li>
+          <li>Inspect các phần tử → Xem Computed values</li>
+          <li>Thay đổi width của thẻ cha → Xem % và em thay đổi</li>
+        </ul>
+      </div>
+
+      <!-- ===== TIPS ===== -->
+      <div class="note" style="background: #e8f5e9; border-color: #4caf50">
+        <h3 style="color: #2e7d32; margin-top: 0">🌟 Pro Tips:</h3>
+        <ul style="margin-left: 20px; color: #2e7d32">
+          <li>
+            <strong>Công thức chuyển đổi:</strong> 1rem = 16px (mặc định), 2rem
+            = 32px, 0.5rem = 8px
+          </li>
+          <li>
+            <strong>Thiết lập base:</strong> Đặt
+            <code>html { font-size: 62.5%; }</code> → 1rem = 10px (dễ tính)
+          </li>
+          <li>
+            <strong>Mobile first:</strong> Dùng rem/% thay vì px cho responsive
+            tốt hơn
+          </li>
+          <li>
+            <strong>Accessibility:</strong> rem cho phép user thay đổi font-size
+            trình duyệt
+          </li>
+          <li>
+            <strong>Performance:</strong> Các đơn vị tương đối không ảnh hưởng
+            performance
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 
+    ============================================
+    GHI CHÚ BỔ SUNG:
+    ============================================
+    
+    1. PX (Pixel):
+       - Đơn vị cơ bản nhất
+       - Không thay đổi theo bất kỳ yếu tố nào
+       - Tốt cho: border, box-shadow, outline
+       
+    2. REM (Root Em):
+       - 1rem = font-size của thẻ <html>
+       - Mặc định: 1rem = 16px
+       - Thay đổi toàn bộ website bằng 1 giá trị
+       - Tốt nhất cho font-size và spacing
+       
+    3. EM:
+       - Dựa trên font-size của thẻ cha
+       - Có thể gây cascade effect
+       - Dùng cẩn thận
+       
+    4. % (Percent):
+       - Dựa trên kích thước thẻ cha
+       - Cực kỳ linh hoạt
+       - Tốt cho layout responsive
+       
+    5. VW (Viewport Width):
+       - 1vw = 1% chiều rộng màn hình
+       - Tự động responsive
+       - Cẩn thận với horizontal scrollbar
+       
+    6. VH (Viewport Height):
+       - 1vh = 1% chiều cao màn hình
+       - Tốt cho full-height sections
+       - Cẩn thận trên mobile (address bar)
+    
+    CÔNG THỨC CHUYỂN ĐỔI:
+    - px to rem: px / 16 = rem (ví dụ: 32px / 16 = 2rem)
+    - rem to px: rem × 16 = px (ví dụ: 2rem × 16 = 32px)
+    - % to decimal: % / 100 (ví dụ: 50% = 0.5)
+    
+    -->
+  </body>
+</html>
