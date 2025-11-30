@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- có 3 cách chèn CSS vào HTML 
+        Inline css: Viết trực tiếp trong thẻ HTML bằng thuộc tính style
+         Internal CSS: Viết trong phần head của HTML
+         External CSS: Liên kết file CSS bên ngoài bằng thẻ <link>
+         -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cách viết CSS</title>
+
+    <!-- áp dụng cách 2 
+    
+    format: 
+    selector {
+        property: value;
+    }
+    
+    nằm bên trong cặp thẻ <style> </style
+    -->
+
+    <style>
+      p {
+        color: blue;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+
+    <!-- cách 3 -->
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h1>Có ba cách viết CSS phổ biến khi xây dựng trang web:</h1>
+
+    <!-- cách 1  -->
+    <p style="color: red; font-weight: bold">
+      CSS nội tuyến (Inline CSS): Viết trực tiếp trong thẻ HTML bằng thuộc tính
+      style. Cách này giúp áp dụng nhanh nhưng làm mã nguồn bị rối và khó bảo
+      trì, nên dùng khi demo, test thử <br />
+    </p>
+
+    <br />
+
+    <!-- cách 2 -->
+    <p>
+      CSS nội bộ (Internal CSS): viết trong thẻ &lt; style&gt; bên trong file
+      HTML. Thích hợp cho các trang web nhỏ hoặc cần tùy chỉnh riêng lẻ. Ưu
+      điểm: có thể tái sử dụng Nhược điểm: không tối ưu cho các trang lớn hoặc
+      khi dự án có nhiều trang html Nên dùng khi: cần ghi đè quy tắc của những
+      thư viện CSS bên ngoài (phần này quan trọng) <br />
+    </p>
+
+    <!-- cách 3 -->
+
+    <p>
+      CSS ngoài (External CSS): Viết trong file .css riêng và liên kết với HTML
+      bằng thẻ <link />. Đây là cách tối ưu, giúp tái sử dụng và quản lý dễ
+      dàng. Trong đó, CSS ngoài là phương pháp được khuyến khích nhất để xây
+      dựng giao diện chuyên nghiệp. ưu điểm: giúp file html và css gọn gàng, có
+      thể tái sử dụng style Nhược điểm: nếu file CSS không tải được thì sẽ mất
+      toàn bộ style Nên dùng khi: lúc nào cũng nên dùng ( và kết hợp cách
+      2(Internal) để ghi đè(override) nếu cần )
+    </p>
+  </body>
+</html>
