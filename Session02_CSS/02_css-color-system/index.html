@@ -1,53 +1,504 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Color System</title>
+    <title>CSS Color System - Hệ Thống Màu Sắc</title>
+        <link rel="stylesheet" href="main.css" />
+
   </head>
   <body>
+    <div class="container">
+      <h1>🎨 CSS Color System - Hệ Thống Màu Sắc</h1>
+
+      <div class="intro">
+        <p>
+          <strong>⚠️ Lưu ý quan trọng:</strong> Nếu bạn dùng màu đúng, giao
+          diện chưa chắc đẹp, nhưng nếu bạn dùng màu sai, giao diện chắc chắn
+          xấu!
+        </p>
+      </div>
+
+      <!-- PHẦN 1: ĐỊNH DẠNG MÀU -->
+      <h2>1. Các Định Dạng Màu (Color Formats)</h2>
+      <p>
+        Trong CSS, có nhiều cách để định nghĩa một màu. Dưới đây là ví dụ với
+        màu <strong>Cyan</strong>:
+      </p>
+
+      <div class="color-formats">
+        <div class="color-box">
+          <div class="color-display" style="background-color: cyan">Cyan</div>
+          <div class="color-info">
+            <h4>Tên màu (Color Name)</h4>
+            <code>color: cyan;</code>
+            <p style="margin-top: 10px; font-size: 0.9em">
+              ✅ Dễ hiểu, dễ nhớ<br />
+              ❌ Chỉ có 140 màu
+            </p>
+          </div>
+        </div>
+
+        <div class="color-box">
+          <div class="color-display" style="background-color: #00ffff">
+            #00FFFF
+          </div>
+          <div class="color-info">
+            <h4>Mã màu HEX</h4>
+            <code>color: #00FFFF;</code>
+            <p style="margin-top: 10px; font-size: 0.9em">
+              ✅ Phổ biến nhất<br />
+              ✅ 16+ triệu màu
+            </p>
+          </div>
+        </div>
+
+        <div class="color-box">
+          <div class="color-display" style="background-color: rgb(0, 255, 255)">
+            RGB
+          </div>
+          <div class="color-info">
+            <h4>Mã màu RGB</h4>
+            <code>color: rgb(0, 255, 255);</code>
+            <p style="margin-top: 10px; font-size: 0.9em">
+              ✅ Dễ hiểu hơn HEX<br />
+              ✅ Hỗ trợ opacity
+            </p>
+          </div>
+        </div>
+
+        <div class="color-box">
+          <div
+            class="color-display"
+            style="background-color: hsl(180, 100%, 50%)"
+          >
+            HSL
+          </div>
+          <div class="color-info">
+            <h4>Mã màu HSL</h4>
+            <code>color: hsl(180, 100%, 50%);</code>
+            <p style="margin-top: 10px; font-size: 0.9em">
+              ✅ Trực quan nhất<br />
+              ✅ Dễ điều chỉnh
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHẦN 2: MÃ MÀU HEX CHI TIẾT -->
+      <h2>2. Mã Màu HEX - Giải Thích Chi Tiết</h2>
+
+      <div class="hex-explanation">
+        <h3>Cấu trúc mã HEX: #RRGGBB</h3>
+        <p>
+          Mỗi mã màu HEX gồm 6 ký tự, chia thành 3 cặp đại diện cho Red, Green,
+          Blue:
+        </p>
+
+        <div class="hex-breakdown">
+          <span>#</span>
+          <span class="hex-part red-part">00</span>
+          <span class="hex-part green-part">AB</span>
+          <span class="hex-part blue-part">FF</span>
+        </div>
+
+        <ul>
+          <li>
+            <strong>Giá trị:</strong> 0-9, A-F (0 = tối nhất, F = sáng nhất)
+          </li>
+          <li><strong>00</strong> = 0 (không có màu đó)</li>
+          <li><strong>FF</strong> = 255 (màu đó ở mức tối đa)</li>
+          <li>
+            <strong>Ví dụ:</strong> #00ABFF = Red: 0, Green: 171, Blue: 255
+          </li>
+        </ul>
+
+        <div class="comparison-grid">
+          <div class="color-box">
+            <div class="color-display" style="background-color: #ff0000">
+              RED MAX
+            </div>
+            <div class="color-info">
+              <code>#FF0000</code>
+              <code>rgb(255, 0, 0)</code>
+            </div>
+          </div>
+
+          <div class="color-box">
+            <div class="color-display" style="background-color: #00ff00">
+              GREEN MAX
+            </div>
+            <div class="color-info">
+              <code>#00FF00</code>
+              <code>rgb(0, 255, 0)</code>
+            </div>
+          </div>
+
+          <div class="color-box">
+            <div class="color-display" style="background-color: #0000ff">
+              BLUE MAX
+            </div>
+            <div class="color-info">
+              <code>#0000FF</code>
+              <code>rgb(0, 0, 255)</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHẦN 3: RGB VÀ RGBA -->
+      <h2>3. Mã Màu RGB & RGBA (Hỗ Trợ Độ Trong Suốt)</h2>
+
+      <div class="note">
+        <p>
+          <strong>RGB:</strong> rgb(red, green, blue) - Mỗi giá trị từ 0-255
+        </p>
+        <p>
+          <strong>RGBA:</strong> rgba(red, green, blue, alpha) - Alpha từ 0-1
+          (0 = trong suốt, 1 = đục)
+        </p>
+      </div>
+
+      <h3>Demo độ trong suốt với RGBA:</h3>
+      <div class="opacity-demo">
+        <div class="opacity-box" style="background-color: rgba(0, 171, 255, 1)">
+          Alpha: 1.0<br />(Đục 100%)
+        </div>
+        <div
+          class="opacity-box"
+          style="background-color: rgba(0, 171, 255, 0.75)"
+        >
+          Alpha: 0.75<br />(Đục 75%)
+        </div>
+        <div
+          class="opacity-box"
+          style="background-color: rgba(0, 171, 255, 0.5)"
+        >
+          Alpha: 0.5<br />(Đục 50%)
+        </div>
+        <div
+          class="opacity-box"
+          style="background-color: rgba(0, 171, 255, 0.25)"
+        >
+          Alpha: 0.25<br />(Đục 25%)
+        </div>
+      </div>
+
+      <!-- PHẦN 4: HSL -->
+      <h2>4. Mã Màu HSL (Hue, Saturation, Lightness)</h2>
+
+      <div class="note">
+        <p><strong>Hue (Sắc độ):</strong> 0-360 độ trên vòng tròn màu</p>
+        <p><strong>Saturation (Độ bão hòa):</strong> 0%-100%</p>
+        <p><strong>Lightness (Độ sáng):</strong> 0%-100%</p>
+        <p style="margin-top: 10px">
+          ⭐ <strong>Ưu điểm:</strong> Dễ điều chỉnh màu sắc hơn HEX và RGB!
+        </p>
+      </div>
+
+      <h3>Ví dụ điều chỉnh Lightness (Độ sáng):</h3>
+      <div class="color-palette">
+        <div
+          class="palette-item"
+          style="background-color: hsl(210, 100%, 20%)"
+        >
+          L: 20%
+        </div>
+        <div
+          class="palette-item"
+          style="background-color: hsl(210, 100%, 40%)"
+        >
+          L: 40%
+        </div>
+        <div
+          class="palette-item"
+          style="background-color: hsl(210, 100%, 50%)"
+        >
+          L: 50%
+        </div>
+        <div
+          class="palette-item"
+          style="background-color: hsl(210, 100%, 60%)"
+        >
+          L: 60%
+        </div>
+        <div
+          class="palette-item"
+          style="background-color: hsl(210, 100%, 80%); color: #333"
+        >
+          L: 80%
+        </div>
+      </div>
+
+      <!-- PHẦN 5: COLOR SYSTEM -->
+      <h2>5. Tạo Color System Cho Giao Diện</h2>
+
+      <p>
+        Một giao diện chuyên nghiệp cần có hệ thống màu rõ ràng với 5 nhóm màu
+        chính:
+      </p>
+
+      <div class="color-system-grid">
+        <!-- Neutral Colors -->
+        <div class="color-group">
+          <h4>
+            🔘 Neutral Colors (Màu Trung Tính) - Chiếm 60-70% giao diện
+          </h4>
+          <p>Dùng làm nền, văn bản, border</p>
+          <div class="color-palette">
+            <div
+              class="palette-item"
+              style="background-color: #000000; color: white"
+            >
+              #000000
+            </div>
+            <div class="palette-item" style="background-color: #333333">
+              #333333
+            </div>
+            <div class="palette-item" style="background-color: #666666">
+              #666666
+            </div>
+            <div class="palette-item" style="background-color: #999999">
+              #999999
+            </div>
+            <div
+              class="palette-item"
+              style="background-color: #e0e0e0; color: #333"
+            >
+              #E0E0E0
+            </div>
+            <div
+              class="palette-item"
+              style="background-color: #ffffff; color: #333; border: 1px solid #ddd"
+            >
+              #FFFFFF
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary Colors -->
+        <div class="color-group">
+          <h4>🔵 Primary Colors (Màu Chính) - Chiếm 20-30% giao diện</h4>
+          <p>Màu chủ đạo của thương hiệu</p>
+          <div class="color-palette">
+            <div class="palette-item" style="background-color: #0d47a1">
+              Darker
+            </div>
+            <div class="palette-item" style="background-color: #1976d2">
+              Dark
+            </div>
+            <div class="palette-item" style="background-color: #2196f3">
+              Main
+            </div>
+            <div class="palette-item" style="background-color: #64b5f6">
+              Light
+            </div>
+            <div
+              class="palette-item"
+              style="background-color: #bbdefb; color: #333"
+            >
+              Lighter
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Colors -->
+        <div class="color-group">
+          <h4>🟣 Secondary Colors (Màu Phụ) - Tùy chọn</h4>
+          <p>Bổ sung cho màu chính, tạo sự đa dạng</p>
+          <div class="color-palette">
+            <div class="palette-item" style="background-color: #4a148c">
+              Darker
+            </div>
+            <div class="palette-item" style="background-color: #7b1fa2">
+              Dark
+            </div>
+            <div class="palette-item" style="background-color: #9c27b0">
+              Main
+            </div>
+            <div class="palette-item" style="background-color: #ba68c8">
+              Light
+            </div>
+            <div
+              class="palette-item"
+              style="background-color: #e1bee7; color: #333"
+            >
+              Lighter
+            </div>
+          </div>
+        </div>
+
+        <!-- Accent Colors -->
+        <div class="color-group">
+          <h4>⭐ Accent Colors (Màu Nhấn)</h4>
+          <p>Làm nổi bật các elements quan trọng (CTA, buttons)</p>
+          <div class="color-palette">
+            <div class="palette-item" style="background-color: #f57c00">
+              Orange
+            </div>
+            <div class="palette-item" style="background-color: #ff6f00">
+              Deep Orange
+            </div>
+            <div class="palette-item" style="background-color: #ff5722">
+              Red Orange
+            </div>
+          </div>
+        </div>
+
+        <!-- Utility Colors -->
+        <div class="color-group">
+          <h4>🛠️ Utility Colors (Màu Tiện Ích)</h4>
+          <p>Truyền tải trạng thái và thông điệp</p>
+          <div class="color-palette">
+            <div class="palette-item" style="background-color: #4caf50">
+              Success<br />#4CAF50
+            </div>
+            <div class="palette-item" style="background-color: #ffc107">
+              Warning<br />#FFC107
+            </div>
+            <div class="palette-item" style="background-color: #f44336">
+              Error<br />#F44336
+            </div>
+            <div class="palette-item" style="background-color: #2196f3">
+              Info<br />#2196F3
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TÀI NGUYÊN -->
+      <div class="resources">
+        <h3>📚 Tài Nguyên Tham Khảo:</h3>
+        <ul>
+          <li>
+            <a
+              href="https://htmlcolorcodes.com/color-names/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >HTML Color Codes</a
+            >
+            - Bảng màu đầy đủ
+          </li>
+          <li>
+            <a
+              href="https://www.fffuel.co/cccolor/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >FFFuel Color</a
+            >
+            - Trực quan hóa HSL
+          </li>
+          <li>
+            <a
+              href="https://uicolors.app/generate"
+              target="_blank"
+              rel="noopener noreferrer"
+              >UI Colors</a
+            >
+            - Tạo color system tự động
+          </li>
+          <li>
+            <a
+              href="https://coolors.co/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Coolors</a
+            >
+            - Generate color palettes
+          </li>
+          <li>
+            <a
+              href="https://color.adobe.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Adobe Color</a
+            >
+            - Color wheel và harmony
+          </li>
+        </ul>
+      </div>
+    </div>
+      </div>
+    </div>
+
     <!-- 
-     nếu bạn dùng màu đúng, giao diện chưa chắc đẹp, nhưng nếu bạn dùng màu
-      sai, giao diện chắc chắn xấu.
-      
-      Màu sắc: 
-        1. Định dạng màu: là định nghĩa một màu 
-        ví dụ: 
-          - tên màu  : Cyan 
-          - Mã màu HEX : #00FFFF
-          - Mã màu RGB : rgb(0, 255, 255)
-          - Mã màu HSL : hsl(180, 100%, 50%)
-          vào website để xem bảng màu: https://htmlcolorcodes.com/color-names/
-        2. cách sử dụng các định dạng màu 
-        _tên màu: dễ hiểu dễ dùng, nhưng bị giới hạn số lượng màu (chỉ 140 màu trong khi đó websafe có hơn 16 triệu màu) 
-        _ Mã màu HEX: phổ biến nhất, được sử dụng rộng rãi trong thiết kế web
-                     kết hợp giữa đỏ, xanh lục,xanh lam để tạo ra hơn 16 triệu màu khác nhau
-                     biểu diễn màu bằng 6 ký tự , bắt đầu dấu # 
-                     được chia làm 3 cặp ký tự, mỗi cặp đại diện cho một màu cơ bản: đỏ, xanh lá, xanh dương (#00ABFF)
-                     range (0-9, A-F) , với 0 là giá trị thấp nhất và F là giá trị cao nhất 
-                     cặp nào càng gần F thì màu đó càng sáng
-        _ Mã màu RGB: nó gần giống với HEX, nhưng thay vì sử dụng hệ thập lục phân (hexadecimal), RGB sử dụng hệ thập phân (decimal) để biểu diễn giá trị màu
-                     định dạng: rgb(red, green, blue)
-                     mỗi thành phần màu có giá trị từ 0 đến 255  ( 00->FF = 256 giá trị)
-                     ví dụ: rgb(0, 171, 255) tương đương với mã màu HEX #00ABFF
-                     ngoài ra còn có rgba(red, green, blue, alpha) trong đó alpha là độ trong suốt (opacity) từ 0 đến 1
-                     ví dụ: rgba(0, 171, 255, 0.5) là màu xanh với độ trong suốt 50%
-        _ Mã màu HSL(Hue, Saturation, Lightness): khác với HEX và RGB, HSL biểu diễn màu dựa trên các thuộc tính: sắc độ (hue), độ bão hòa (saturation) và độ sáng (lightness)
-        các bạn có thể tham khảo thêm về HSL ở đây: https://www.fffuel.co/cccolor/
-        nó sẽ trực quan hơn(hex, rgb) khi thiết kế web 
-       
-       
-        3. các tạo color system cho giao diện 
-        
-        có 5 nhóm màu chính trong color system:
-          - Neutral colors (màu trung tính): bao gồm các sắc thái của xám, trắng, đen, dùng làm nền hoặc văn bản ( chiếm 60-70% trong giao diện)         
-          - Primary colors (màu chính): thường là màu chủ đạo của thương hiệu hoặc giao diện ( chiếm 20-30% trong giao diện)
-          - Secondary colors (màu phụ): bổ sung cho màu chính, tạo sự đa dạng và cân bằng (không nhất thiết phải có, nhưng nếu có thì phải hợp với màu chủ đạo)
-          - Accent colors (màu nhấn): dùng để làm nổi bật, có tính sáng tạo, không phụ thuộc vào màu chính hay màu phụ 
-          - utility colors (màu tiện ích): thường dùng ba màu: đỏ, xanh là, vàng dùng trong những ứng dụng quản lý, hoặc tương tác với người dùng để truyền tải thông điệp cụ thể ( ví dụ: đỏ - lỗi, xanh lá - thành công, vàng - cảnh báo)
-        
-          các bạn tham khảo thêm về color system ở đây: https://uicolors.app/generate
-          
+    ============================================
+    LƯU Ý KHI HỌC:
+    ============================================
+    
+    1. TÊN MÀU (Color Name):
+       - Ưu điểm: Dễ hiểu, dễ nhớ (red, blue, green...)
+       - Nhược điểm: Giới hạn chỉ 140 màu
+       - Khi nào dùng: Prototype nhanh, demo
+    
+    2. MÃ MÀU HEX:
+       - Phổ biến nhất trong thiết kế web
+       - Cấu trúc: #RRGGBB (Red, Green, Blue)
+       - Range: 00-FF cho mỗi màu (0-255 trong hệ thập phân)
+       - 16+ triệu màu khác nhau
+       - Khi nào dùng: Production, design handoff
+    
+    3. MÃ MÀU RGB/RGBA:
+       - Giống HEX nhưng dễ đọc hơn
+       - rgb(red, green, blue) - Mỗi giá trị 0-255
+       - rgba() có thêm alpha (opacity) từ 0-1
+       - Khi nào dùng: Cần độ trong suốt, làm việc với JavaScript
+    
+    4. MÃ MÀU HSL:
+       - Trực quan nhất: Hue (màu), Saturation (độ bão hòa), Lightness (độ sáng)
+       - Dễ điều chỉnh và tạo biến thể màu
+       - Khi nào dùng: Tạo color system, theme, dark mode
+    
+    ============================================
+    COLOR SYSTEM - 5 NHÓM MÀU:
+    ============================================
+    
+    1. NEUTRAL COLORS (60-70%):
+       - Màu trung tính: đen, trắng, xám
+       - Dùng cho: nền, văn bản, border
+       - Quan trọng nhất trong thiết kế
+    
+    2. PRIMARY COLORS (20-30%):
+       - Màu chủ đạo của thương hiệu
+       - Dùng cho: logo, CTA chính, navigation
+       - Nên có 3-5 biến thể (darker, dark, main, light, lighter)
+    
+    3. SECONDARY COLORS (Tùy chọn):
+       - Bổ sung cho màu chính
+       - Tạo sự đa dạng và cân bằng
+       - Phải hài hòa với primary color
+    
+    4. ACCENT COLORS:
+       - Làm nổi bật elements quan trọng
+       - Có thể độc lập với primary/secondary
+       - Dùng tiết kiệm để tạo điểm nhấn
+    
+    5. UTILITY COLORS:
+       - Success (xanh lá): #4CAF50
+       - Warning (vàng): #FFC107
+       - Error (đỏ): #F44336
+       - Info (xanh dương): #2196F3
+    
+    ============================================
+    THỰC HÀNH:
+    ============================================
+    
+    1. Mở DevTools (F12) → Elements → Styles
+    2. Click vào color value để mở Color Picker
+    3. Thử thay đổi màu và xem kết quả real-time
+    4. Sử dụng các website tham khảo ở trên
+    5. Thực hành tạo color palette cho dự án riêng
+    
+    ============================================
+    TIPS:
+    ============================================
+    
+    - Sử dụng CSS Variables để quản lý màu sắc
+    - Luôn test màu với nhiều thiết bị khác nhau
+    - Đảm bảo contrast ratio cho accessibility (WCAG)
+    - Sử dụng tool như Coolors.co để tìm màu hài hòa
+    - Học cách từ các website lớn (Airbnb, Stripe, GitHub)
+    
     -->
   </body>
 </html>
